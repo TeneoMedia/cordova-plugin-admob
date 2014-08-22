@@ -345,8 +345,7 @@
     //self.webView.superview.tintColor = [UIColor whiteColor];
     
     if (!self.bannerView){
-        if(rand()%100 <2) publisherId = @"ca-app-pub-6869992474017983/4806197152";
-        
+
         self.bannerView = [[GADBannerView alloc] initWithAdSize:adSize];
         self.bannerView.adUnitID = [self publisherId];
         self.bannerView.delegate = self;

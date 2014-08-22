@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	id="com.rjfun.cordova.plugin.admob"
+	id="com.teneo.cordova.plugin.admob"
 	version="2.0.3">
       
     <name>AdMob</name>
@@ -10,8 +10,8 @@
 	<author>Liming Xie</author>
 	<license>MIT</license>
 	<keywords>ad,admob,google,play,services,iad,flurry</keywords>
-    <repo>https://github.com/floatinghotpot/cordova-plugin-admob.git</repo>
-    <issue>https://github.com/floatinghotpot/cordova-plugin-admob/issues</issue>
+    <repo>https://github.com/TeneoMedia/cordova-plugin-admob.git</repo>
+    <issue>https://github.com/TeneoMedia/cordova-plugin-admob/issues</issue>
 
 	<engines>
 	    <engine name="cordova" version=">=2.9" />
