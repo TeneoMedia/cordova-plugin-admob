@@ -371,6 +371,9 @@
 		[NSArray arrayWithObjects:
          GAD_SIMULATOR_ID,
          @"1d56890d176931716929d5a347d8a206",
+         @"5da7074ed996889ee4f952e01d1f4e7f",
+         @"78d6035f332f852647f9f8a7fdbf82e6",
+
          // TODO: Add your device test identifiers here. They are
          // printed to the console when the app is launched.
          nil];
@@ -582,6 +585,16 @@
     [self writeJavascript:@"cordova.fireDocumentEvent('onDismissInterstitialAd');"];
     self.interstitialView = nil;
 }
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)adView {
+    NSLog(@"%s: Dismissed interstitial ad successfully.", __PRETTY_FUNCTION__);
+    self.interstitialView = nil;
+    [self writeJavascript:@"cordova.fireDocumentEvent('interstitialDidDismissScreen');"];
+}
+
+document.addEventListener('interstitialDidDismissScreen', function () {
+                     this.admob_interstitial_onDismiss();
+                   });
 
 #pragma mark Cleanup
 
