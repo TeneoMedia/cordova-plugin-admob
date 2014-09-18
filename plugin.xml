@@ -29,6 +29,11 @@
                 <param name="android-package" value="com.rjfun.cordova.plugin.AdMob"/>
             </feature>
         </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+                      android:name="com.google.android.gms.ads.AdActivity"
+                      android:theme="@android:style/Theme.Translucent" />
+        </config-file>
         <source-file src="src/android/AdMob.java" target-dir="src/com/rjfun/cordova/plugin" />
      </platform>
      
@@ -40,11 +45,7 @@
                  <param name="ios-package" value="CDVAdMob" />
              </feature>
          </config-file>
-         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-             <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-                       android:name="com.google.android.gms.ads.AdActivity"
-                       android:theme="@android:style/Theme.Translucent" />
-         </config-file>
+
          <header-file src="src/ios/CDVAdMob.h" />
          <source-file src="src/ios/CDVAdMob.m" />
 	</platform>
