@@ -592,10 +592,6 @@
     [self writeJavascript:@"cordova.fireDocumentEvent('interstitialDidDismissScreen');"];
 }
 
-document.addEventListener('interstitialDidDismissScreen', function () {
-                     this.admob_interstitial_onDismiss();
-                   });
-
 #pragma mark Cleanup
 
 - (void)dealloc {
