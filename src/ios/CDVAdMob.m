@@ -580,7 +580,7 @@
     }
 }
 
-- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+- (void)onDismissInterstitialAd:(GADInterstitial *)interstitial {
     NSLog( @"onDismissInterstitialAd" );
     [self writeJavascript:@"cordova.fireDocumentEvent('onDismissInterstitialAd');"];
     self.interstitialView = nil;
