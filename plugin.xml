@@ -39,7 +39,7 @@
      
      <!-- ios -->
      <platform name="ios">    
-    	<dependency id="com.google.admobsdk-ios" version=">=6.11.1"/>
+    	<dependency id="com.google.admobsdk-ios" version=">=6.12.0"/>
          <config-file target="config.xml" parent="/*">
              <feature name="AdMob">
                  <param name="ios-package" value="CDVAdMob" />

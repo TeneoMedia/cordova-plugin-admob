@@ -87,6 +87,9 @@ public class AdMob extends CordovaPlugin {
 	private JSONObject adExtras = null;
 	private boolean autoShow = true;
 	
+	private boolean autoShowBanner = true;
+	private boolean autoShowInterstitial = true;
+	
 	private boolean bannerVisible = false;
 	private boolean isGpsAvailable = false;
 
@@ -110,9 +113,6 @@ public class AdMob extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray inputs, CallbackContext callbackContext) throws JSONException {
         PluginResult result = null;
-        //if( ! isGpsAvailable ) {
-        //	result = new PluginResult(Status.ERROR, "Google Play Services Not Available");
-        //} else 
 
 	if (ACTION_SET_OPTIONS.equals(action)) {
             JSONObject options = inputs.optJSONObject(0);
@@ -192,6 +192,8 @@ public class AdMob extends CordovaPlugin {
     private PluginResult executeCreateBannerView(JSONObject options, final CallbackContext callbackContext) {
     	
     	this.setOptions( options );
+    	autoShowBanner = autoShow;
+    	
         if(this.publisherId.length() == 0) this.publisherId = DEFAULT_PUBLISHER_ID;
 
         cordova.getActivity().runOnUiThread(new Runnable(){
@@ -219,9 +221,7 @@ public class AdMob extends CordovaPlugin {
                 bannerVisible = false;
                 adView.loadAd( buildAdRequest() );
                 
-                bannerShow = autoShow;
-                
-                if(bannerShow) {
+                if(autoShowBanner) {
                 	executeShowAd(true, null);
                 }
                 
@@ -269,6 +269,8 @@ public class AdMob extends CordovaPlugin {
      */
     private PluginResult executeCreateInterstitialView(JSONObject options, CallbackContext callbackContext) {
     	this.setOptions( options );
+    	autoShowInterstitial = autoShow;
+    	
     	if(this.interstialAdId.length() == 0) this.interstialAdId = this.publisherId;
     	if(this.interstialAdId.length() == 0) this.interstialAdId = DEFAULT_PUBLISHER_ID;
         
@@ -498,7 +500,7 @@ public class AdMob extends CordovaPlugin {
             Log.w("AdMob", "InterstitialAdLoaded");
             webView.loadUrl("javascript:cordova.fireDocumentEvent('onReceiveInterstitialAd');");
             
-            if(autoShow) {
+            if(autoShowInterstitial) {
             	executeShowInterstitialAd(true, null);
             }
         }
